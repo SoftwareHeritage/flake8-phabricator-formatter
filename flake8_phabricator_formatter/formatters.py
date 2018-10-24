@@ -8,15 +8,17 @@ class PhabricatorFormatter(base.BaseFormatter):
                 'W': 'warning',
                 }
     def format(self, error):
-
+        filename = error.filename
+        if filename.startswith("./"):
+            filename = filename[2:]
         errdict = {
-            error.filename: [{
-                "code": error.code,
-                "description": error.text,
-                "line": error.line_number,
-                "char": error.column_number,
-                "severity": self.severity.get(error.code[0], 'unknown'),
-                "context": error.physical_line,
-            }]
+            "name": "flake8",
+            "path": filename,
+            "code": error.code,
+            "description": error.text,
+            "line": error.line_number,
+            "char": error.column_number,
+            "severity": self.severity.get(error.code[0], 'advice'),
+            "context": error.physical_line,
         }
         return json.dumps(errdict)
