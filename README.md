@@ -2,9 +2,10 @@ flake8-phabricator-formatter
 ============================
 
 A simple formatter plugin for [flake8](http://flake8.pycqa.org) that generates
-json formatted results suitable for Phabricator's Harbormaster integraton.
+json formatted results suitable for Phabricator's Harbormaster integraton,
+according to [this documentation](https://github.com/uber/phabricator-jenkins-plugin/blob/master/docs/advanced.md#custom-lint)
 
-It's mainly dedicated to be used in Jenkins with the
+As such, it's mainly dedicated to being used in Jenkins with the
 [Phabricator Jenkins Plugin](https://github.com/uber/phabricator-jenkins-plugin).
 
 ## Example
@@ -21,4 +22,3 @@ flake8 --format=phabricator
 {"context": "  \n", "char": 1, "code": "W293", "line": 8, "name": "flake8", "severity": "warning", "path": "sandbox/__init__.py", "description": "blank line contains whitespace"}
 
 ```
-
