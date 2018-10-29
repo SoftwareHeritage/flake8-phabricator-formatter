@@ -11,7 +11,7 @@ setuptools.setup(
     description="flake8 formatter for Phabricator's Harbormaster",
     author='Software Heritage developers',
     author_email='swh-devel@inria.fr',
-    url="https://xxx/flake8-phabricator-formatter",
+    url="https://forge.softwareheritage.org/source/flake8-phabricator-formatter/",
     packages=[
         "flake8_phabricator_formatter",
     ],
