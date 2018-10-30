@@ -1,21 +1,28 @@
-import setuptools
+from setuptools import setup, find_packages
 
-requires = [
-    "flake8 > 3.0.0",
-]
+from os import path
+from io import open
 
-setuptools.setup(
+here = path.abspath(path.dirname(__file__))
+
+# Get the long description from the README file
+with open(path.join(here, 'README.md'), encoding='utf-8') as f:
+    long_description = f.read()
+
+setup(
     name="flake8-phabricator-formatter",
     license="MIT",
-    version="0.1.0",
+    version="0.1.1",
     description="flake8 formatter for Phabricator's Harbormaster",
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     author='Software Heritage developers',
     author_email='swh-devel@inria.fr',
-    url="https://forge.softwareheritage.org/source/flake8-phabricator-formatter/",
-    packages=[
-        "flake8_phabricator_formatter",
+    url="https://forge.softwareheritage.org/source/flake8-phabricator-formatter/",  # noqa
+    packages=find_packages(),
+    install_requires=[
+        "flake8 > 3.0.0",
     ],
-    install_requires=requires,
     entry_points={
         'flake8.report': [
             'phabricator = '
